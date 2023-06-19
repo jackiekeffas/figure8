@@ -17,16 +17,16 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
 
     <!-- CSS -->
+    <link rel="stylesheet" href="static/css/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="static/css/style.css">
-    <link rel="stylesheet" href="static/css/bootstrap.css">
 
     <!-- JS -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script>
 			$(document).scroll(function () {
-				var $nav = $(".project-page");
-				var $hero = $(".project-hero");
-				$nav.toggleClass('scrolled', $(this).scrollTop() > ($hero.height() + $nav.height()));
+				var $nav = $(".navbar");
+				var $hero = $(".header-wrapper");
+				$nav.toggleClass('scrolled', $(this).scrollTop() > ($hero.height()));
 			});
 		</script>
   </head>
@@ -53,14 +53,14 @@
       </div>
     </nav>
     
-    <div class="w-100 h-100 d-flex align-items-center text-center">  
-      <header class="container">
+    <div class="header-wrapper w-100 h-100 d-flex align-items-center text-center">  
+      <header class="container-fluid">
         <h1 class="display">The Figure 8 Group</h1>
-        <video id="fireball" preload="true" muted loop>
-          <source src="static/videos/fireball.mp4" type="video/mp4">
+        <video class="header-video" id="fireball" preload="true" muted loop>
+          <source src="static/videos/fireball-animation.mp4" type="video/mp4">
         </video>
-        <div class="video-controls">
-          <button id="videoControls" onclick="playVideo()"><i class="ri-pause-line"></i></button>
+        <div>
+          <button id="video-controls" class="btn btn-sm btn-icon" onclick="playVideo()"><i class="ri-pause-line"></i></button>
         </div>
       </header>
     </div>
@@ -71,6 +71,8 @@
           <div class="row justify-content-center">
             <div class="col-12 col-md-8">
               <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras maximus eget lacus in volutpat. Praesent sem neque, maximus ullamcorper erat in, sollicitudin lacinia libero. Nam tristique, nulla quis blandit interdum, elit sapien porttitor erat, et vehicula arcu nibh ac dui.</p>
+              <a href="#" class="btn btn-primary">Learn more</a>
+              <a href="#" class="btn btn-sm btn-icon"><i class="ri-pause-line"></i></a>
             </div>
           </div>
         </div>
@@ -93,7 +95,39 @@
               <h2 class="display">Contact</h2>
             </div>
             <div class="col-12 col-md">
-              <p>Form area</p>
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="name" placeholder="Name" value="" required="">
+                  <div class="invalid-feedback">
+                    Please enter a name.
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="phone" class="form-label">Phone number</label>
+                  <input type="phone" class="form-control" id="phone" placeholder="(000) 000-0000" value="" required="">
+                  <div class="invalid-feedback">
+                    Please enter a valid phone number.
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" placeholder="you@example.com" value="" required="">
+                  <div class="invalid-feedback">
+                    Please enter a valid email address.
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <label for="message" class="form-label">Message</label>
+                  <input type="text" class="form-control" id="message" placeholder="How can we help?" value="" required="">
+                  <div class="invalid-feedback">
+                    Please enter a message.
+                  </div>
+                </div>
+
+                <button class="btn btn-primary" type="submit">Submit</button>
             </div>
           </div>
         </div>
@@ -104,12 +138,12 @@
           <div class="col-12 col-md">
             <p class="h4-display">The<br>Figure 8 Group</p>
           </div>
-          <div class="col-12 col-md social align-self-md-end">
-            <div class="row">
-              <div class="col"><a class="link-white" href="#"><i class="ri-linkedin-line"></i></a></div>
-              <div class="col"><a class="link-white" href="#"><i class="ri-facebook-line"></i></a></div>
-              <div class="col"><a class="link-white" href="#"><i class="ri-twitter-line"></i></a></div>
-              <div class="col"><a class="link-white" href="#"><i class="ri-instagram-line"></i></a></div>
+          <div class="col-12 col-md copyright align-self-md-end">
+            <div class="social-buttons d-flex justify-content-center justify-content-md-end">
+              <a class="btn btn-sm btn-icon" href="https://www.linkedin.com/company/thefigure8group/" target="_blank"><i class="ri-linkedin-line"></i></a>
+              <a class="btn btn-sm btn-icon" href="https://www.facebook.com/TheFigure8GroupBos" target="_blank"><i class="ri-facebook-line"></i></a>
+              <a class="btn btn-sm btn-icon" href="https://twitter.com/fig8group" target="_blank"><i class="ri-twitter-line"></i></a>
+              <a class="btn btn-sm btn-icon" href="https://www.instagram.com/the.figure8group/" target="_blank"><i class="ri-instagram-line"></i></a>
             </div>
             <p class="smaller">&copy; 2023 The Figure 8 Group</p>
           </div>
@@ -119,7 +153,7 @@
 
   <script>
     var video = document.getElementById("fireball");
-    var btn = document.getElementById("videoControls");
+    var btn = document.getElementById("video-controls");
     function playVideo() {
       if (video.paused) {
         video.play();

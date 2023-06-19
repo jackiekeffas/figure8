@@ -1,5 +1,6 @@
 @import "bootstrap/bootstrap";
 
+
 // Grid
 
 .container,
@@ -90,12 +91,28 @@ a {
   transition: $transition-base;
 }
 
-a.link-white {
-  color: $white;
-}
 
-a.link-white:hover {
-  color: $primary;
+
+// Buttons
+
+.btn-icon {
+  line-height: 1rem;
+  font-weight: $font-weight-normal;
+
+  @include button-variant(
+    transparent,
+    transparent,
+    $white,
+    $orange-700,
+    $black,
+    color-contrast($orange-700),
+    $orange-700,
+    $black,
+    color-contrast($orange-700),
+    transparent,
+    transparent,
+    $white
+  );
 }
 
 
@@ -108,10 +125,24 @@ a.link-white:hover {
 }
 
 .navbar {
-  padding: 20px 0 16px;
+  padding: 1.25rem 0 1rem;
+  opacity: 0;
+  transition: $transition-base;
+  top: -75px;
   
   @include media-breakpoint-up(md) {
-    padding: 20px $navbar-padding-x 16px;
+    padding: 1.25rem $navbar-padding-x 1rem;
+  }
+
+  .container-fluid {
+    @include media-breakpoint-up(md) {
+      padding-right: .75rem;
+    }
+  }
+
+  &.scrolled {
+    opacity: 1;
+    top: 0;
   }
 }
 
@@ -124,25 +155,52 @@ a.link-white:hover {
 }
 
 .navbar-expand .navbar-nav .nav-link {
-  padding: $nav-link-padding-y 0 $nav-link-padding-y $nav-link-padding-x;
+  padding: $nav-link-padding-y $nav-link-padding-x;
 }
 
 
 
 // Header
 #fireball {
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
+
+  @include media-breakpoint-up(md) {
+    width: 80%;
+    height: 80%;
+  }
 }
 
-#videoControls {
-  border: none;
-  background: transparent;
-  color: $white;
+#video-controls {
   cursor: pointer;
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+header h1 {
+  animation-name: title-position;
+  animation-duration: 4.5s;
+  margin-bottom: 0;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  width: 90%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes title-position {
+  0%   {opacity: 0; top: 50%;}
+  75%  {opacity: 1; top: 50%;}
+  100% {opacity: 1; top: 15%;}
+}
+
+.header-video {
+  margin-top: 5rem;
+
+  @include media-breakpoint-up(md) {
+    margin-top: 9rem;
+  }
 }
 
 
@@ -171,10 +229,10 @@ main.container {
 }
 
 .section {
-  padding: 100px 0;
+  padding: 6.25rem 0;
 
   @include media-breakpoint-up(md) {
-    padding: 200px 0;
+    padding: 12.5rem 0;
   }
 }
 
@@ -187,21 +245,31 @@ footer {
   background-repeat: no-repeat;
   background-size: contain;
   font-size: 1.5rem;
-  padding: 0px 24px 72px;
+  padding: 0px 1.5rem 4.5rem;
 
   @include media-breakpoint-up(md) {
-    padding: 108px 80px 32px;
+    padding: 6.75rem 4rem 2rem 5rem;
   }
 
   .h4-display {
     margin-bottom: 0;
   }
 
-  .social {
+  .copyright {
     text-align: center;
 
     @include media-breakpoint-up(md) {
       text-align: right;
+
+      p.smaller {
+        margin-bottom: 0;
+        padding-right: 1rem;
+      }
     }
+  }
+
+  .social-buttons {
+    gap: 1rem;
+    margin-bottom: 1rem;
   }
 }
