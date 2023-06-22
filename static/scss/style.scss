@@ -191,6 +191,12 @@ ol {
   );
 }
 
+.btn:focus-visible,
+a:focus-visible {
+  box-shadow: $input-btn-focus-box-shadow;
+  outline: none;
+}
+
 
 
 // Nav
