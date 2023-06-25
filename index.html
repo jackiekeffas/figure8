@@ -56,14 +56,16 @@
     <div class="header-wrapper w-100 h-100 d-flex align-items-center text-center">  
       <header class="container-fluid">
         <h1 class="display">The Figure 8 Group</h1>
-        <video class="header-video" id="fireball" preload="true" muted loop>
+        <video class="header-video" id="fireball" preload="true" loop muted playsinline>
           <source src="static/videos/fireball-animation.mp4" type="video/mp4">
         </video>
-        <audio id="song" autoplay loop>
-          <source src="horse.mp3" type="audio/mpeg">
+        <audio id="song" loop>
+          <source src="" type="audio/mpeg">
         </audio>
         <div>
           <button id="audio-controls" class="btn btn-sm btn-icon" onclick="playAudio()"><i class="ri-volume-mute-line"></i></button>
+        </div>
+        <div>
           <button id="video-controls" class="btn btn-sm btn-icon" onclick="playVideo()"><i class="ri-pause-line"></i></button>
         </div>
       </header>
