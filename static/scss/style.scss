@@ -409,3 +409,7 @@ footer {
     margin-bottom: 1rem;
   }
 }
+
+.m-video__button[aria-pressed="true"] {
+  display: none;
+}
