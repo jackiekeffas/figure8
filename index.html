@@ -59,8 +59,8 @@
         <video class="header-video" id="fireball" preload="true" loop muted playsinline>
           <source src="static/videos/fireball-animation.mp4" type="video/mp4">
         </video>
-        <audio id="song" loop>
-          <source src="" type="audio/mpeg">
+        <audio id="song" loop autoplay controls>
+          <source src="static/audio/void.mp3" type="audio/mpeg">
         </audio>
         <div>
           <button id="audio-controls" class="btn btn-sm btn-icon" onclick="playAudio()" aria-pressed="false" aria-label="Pause audio" type="button"><i class="ri-volume-mute-line"></i></button>
@@ -75,7 +75,7 @@
       <main class="container mb-auto">
         <div class="section text-center" id="about">
           <div class="row justify-content-center">
-            <div class="col-12 col-md-8">
+            <div class="col-12 col-xl-8">
               <p class="lead mb-4">The Figure 8 Group focuses on perfecting the execution of your entire operation. Understanding what “Figure 8” represents, if you are an owner or a manager and you touch tables, go to the bar, oversee the expo window, spend time at the host stand... Knowing your restaurant every shift will lead you to a profitable P&L.</p>
               <p class="lead mb-0"><strong>“If you don’t take care of your guests, another restaurant will.”</strong></p>
             </div>
@@ -94,14 +94,15 @@
                 <li>Food cost will be between 25%-29%</li>
                 <li>Beginning inventory - all protein will be inventoried every night to the pmix to see how many mistakes or giveaways we are doing.</li>
                 <li>Proper storage throughout the line and legendary cleaning / executive chef sets the standard</li>
-                <li>Watching labor in the kitchen is hard. Everyone must punch in no more than 5 minutes before or after their shift. For 20 min a day watching that clock i bet you will save .5% a month off labor costs.</li>
+                <li>Watching labor in the kitchen is hard. Everyone must punch in no more than 5 minutes before or after their shift. For 20 min a day watching that clock I bet you will save .5% a month off labor costs.</li>
                 <li>The Figure 8 Team does their figure 8’s around the kitchen like a well- oiled machine.</li>
                 <li>An A+ with the board of health, grease traps completed within 4 weeks of our completed project.</li>
                 <li>Proper equipment for the team in the kitchen to work well. Gaskets, pans, proper refrigeration, working ovens, ice machines that are spotless.</li>
+                <li>Menu development</li>
               </ol>
               <p>This will come with a test after 2 weeks and another on the last day.</p>
               <p>The Figure 8 Group will be available for 2 days or nights a week for 2 weeks to assess any problems not completed!!!</p>
-              <p class="lead"><strong>$80 an hour or $5,000 for the entire project for 4 weeks</strong></p>
+              <p class="lead"><strong>$80 an hour or $5,500 for the entire project for 4 weeks</strong></p>
             </div>
           </div>
 
@@ -193,17 +194,17 @@
                 <li>Formation of media lists for press releases and pitches</li>
                 <li>Send out pitches</li>
               </ol>
-              <p class="lead"><strong>$70 an hour, one month = $4,000</strong></p>
+              <p class="lead"><strong>$70 an hour, one month = $5,000</strong></p>
             </div>
           </div>
         </div>
 
         <div class="section" id="contact">
           <div class="row">
-            <div class="col-12 col-md">
+            <div class="col-12 col-md-5 col-lg">
               <h2 class="display">Contact</h2>
             </div>
-            <div class="col-12 col-md">
+            <div class="col-12 col-md-7 col-lg">
                 <div class="mb-3">
                   <label for="name" class="form-label">Name</label>
                   <input type="text" class="form-control" id="name" placeholder="Name" value="" required="">
@@ -279,19 +280,23 @@
       }
     </script>
 
-    <!-- <script>
+    <script>
       var audio = document.getElementById("song");
       var btn = document.getElementById("audio-controls");
       function playAudio() {
         if (audio.paused) {
           audio.play();
           btn.innerHTML = '<i class="ri-volume-mute-line"></i>';
+          btn.setAttribute("aria-pressed", "false");
+          btn.setAttribute("aria-label", "Pause music");
         } else {
           audio.pause();
           btn.innerHTML = '<i class="ri-volume-up-line"></i>';
+          btn.setAttribute("aria-pressed", "true");
+          btn.setAttribute("aria-label", "Play music");
         }
       }
-    </script> -->
+    </script>
 
     <script>
       var video = document.getElementById("fireball");
