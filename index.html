@@ -59,7 +59,7 @@
         <video class="header-video" id="fireball" preload="true" loop muted playsinline>
           <source src="static/videos/fireball-animation.mp4" type="video/mp4">
         </video>
-        <audio id="song" loop autoplay>
+        <audio id="music" loop autoplay>
           <source src="static/audio/void.mp3" type="audio/mpeg">
         </audio>
         <div>
@@ -281,7 +281,7 @@
     </script>
 
     <script>
-      var audio = document.getElementById("song");
+      var audio = document.getElementById("music");
       var audioButton = document.getElementById("audio-controls");
       function playAudio() {
         if (audio.paused) {
