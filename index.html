@@ -59,7 +59,7 @@
         <video class="header-video" id="fireball" preload="true" loop muted playsinline>
           <source src="static/videos/fireball-animation.mp4" type="video/mp4">
         </video>
-        <audio id="song" loop autoplay controls>
+        <audio id="song" loop autoplay>
           <source src="static/audio/void.mp3" type="audio/mpeg">
         </audio>
         <div>
@@ -264,36 +264,36 @@
 
     <script>
       var video = document.getElementById("fireball");
-      var btn = document.getElementById("video-controls");
+      var videoButton = document.getElementById("video-controls");
       function playVideo() {
         if (video.paused) {
           video.play();
-          btn.innerHTML = '<i class="ri-pause-line"></i>';
-          btn.setAttribute("aria-pressed", "false");
-          btn.setAttribute("aria-label", "Pause video");
+          videoButton.innerHTML = '<i class="ri-pause-line"></i>';
+          videoButton.setAttribute("aria-pressed", "false");
+          videoButton.setAttribute("aria-label", "Pause video");
         } else {
           video.pause();
-          btn.innerHTML = '<i class="ri-play-line"></i>';
-          btn.setAttribute("aria-pressed", "true");
-          btn.setAttribute("aria-label", "Play video");
+          videoButton.innerHTML = '<i class="ri-play-line"></i>';
+          videoButton.setAttribute("aria-pressed", "true");
+          videoButton.setAttribute("aria-label", "Play video");
         }
       }
     </script>
 
     <script>
       var audio = document.getElementById("song");
-      var btn = document.getElementById("audio-controls");
+      var audioButton = document.getElementById("audio-controls");
       function playAudio() {
         if (audio.paused) {
           audio.play();
-          btn.innerHTML = '<i class="ri-volume-mute-line"></i>';
-          btn.setAttribute("aria-pressed", "false");
-          btn.setAttribute("aria-label", "Pause music");
+          audioButton.innerHTML = '<i class="ri-volume-mute-line"></i>';
+          audioButton.setAttribute("aria-pressed", "false");
+          audioButton.setAttribute("aria-label", "Pause music");
         } else {
           audio.pause();
-          btn.innerHTML = '<i class="ri-volume-up-line"></i>';
-          btn.setAttribute("aria-pressed", "true");
-          btn.setAttribute("aria-label", "Play music");
+          audioButton.innerHTML = '<i class="ri-volume-up-line"></i>';
+          audioButton.setAttribute("aria-pressed", "true");
+          audioButton.setAttribute("aria-label", "Play music");
         }
       }
     </script>
