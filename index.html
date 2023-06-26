@@ -63,10 +63,10 @@
           <source src="static/audio/void.mp3" type="audio/mpeg">
         </audio>
         <div>
-          <button id="audio-controls" class="btn btn-sm btn-icon" onclick="playAudio()" aria-pressed="false" aria-label="Pause audio" type="button"><i class="ri-volume-mute-line"></i></button>
+          <button id="audio-controls" class="btn btn-sm btn-icon" onclick="playAudio()" aria-pressed="false" aria-label="Play audio" type="button"><i class="ri-volume-up-line"></i></button>
         </div>
         <div>
-          <button id="video-controls" class="btn btn-sm btn-icon" onclick="playVideo()" aria-pressed="false" aria-label="Pause video" type="button"><i class="ri-pause-line"></i></button>
+          <button id="video-controls" class="btn btn-sm btn-icon" onclick="playVideo()" aria-pressed="false" aria-label="Play video" type="button"><i class="ri-play-line"></i></button>
         </div>
       </header>
     </div>
@@ -269,15 +269,21 @@
         if (video.paused) {
           video.play();
           videoButton.innerHTML = '<i class="ri-pause-line"></i>';
-          videoButton.setAttribute("aria-pressed", "false");
+          videoButton.setAttribute("aria-pressed", "true");
           videoButton.setAttribute("aria-label", "Pause video");
         } else {
           video.pause();
           videoButton.innerHTML = '<i class="ri-play-line"></i>';
-          videoButton.setAttribute("aria-pressed", "true");
+          videoButton.setAttribute("aria-pressed", "false");
           videoButton.setAttribute("aria-label", "Play video");
         }
       }
+
+      video.addEventListener('play', function() { 
+        videoButton.innerHTML = '<i class="ri-pause-line"></i>';
+        videoButton.setAttribute("aria-pressed", "true");
+        videoButton.setAttribute("aria-label", "Pause video");
+      });
     </script>
 
     <script>
@@ -287,15 +293,21 @@
         if (audio.paused) {
           audio.play();
           audioButton.innerHTML = '<i class="ri-volume-mute-line"></i>';
-          audioButton.setAttribute("aria-pressed", "false");
+          audioButton.setAttribute("aria-pressed", "true");
           audioButton.setAttribute("aria-label", "Pause music");
         } else {
           audio.pause();
           audioButton.innerHTML = '<i class="ri-volume-up-line"></i>';
-          audioButton.setAttribute("aria-pressed", "true");
+          audioButton.setAttribute("aria-pressed", "false");
           audioButton.setAttribute("aria-label", "Play music");
         }
       }
+
+      audio.addEventListener('play', function() { 
+        audioButton.innerHTML = '<i class="ri-volume-mute-line"></i>';
+        audioButton.setAttribute("aria-pressed", "true");
+        audioButton.setAttribute("aria-label", "Pause music");
+      });
     </script>
 
     <script>
