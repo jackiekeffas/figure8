@@ -350,8 +350,36 @@ main.container {
 
 
 // Form
-.form-label {
+.form-label,
+.form-error-message {
   padding-left: 1rem;
+}
+
+.form-line {
+  margin-bottom: 1.5rem;
+}
+
+.form-error-message span {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+}
+
+.form-control {
+  margin-bottom: .5rem;
+}
+
+.section .form-error-message img {
+  padding: 0;
+  display: none;
+}
+
+.form-required {
+  color: $orange !important;
+  padding-left: .2rem;
+}
+
+.form-error-message {
+  margin-bottom: 1rem;
 }
 
 
