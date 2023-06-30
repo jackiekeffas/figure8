@@ -437,3 +437,9 @@ footer {
     margin-bottom: 1rem;
   }
 }
+
+body.dark-gradient footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
