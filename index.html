@@ -57,14 +57,14 @@
       <header class="container-fluid">
         <h1 class="display">The Figure 8 Group</h1>
         <div id="bm" class="fireball"> </div>
-        <audio id="music" loop autoplay>
-          <!-- <source src="static/audio/void.mp3" type="audio/mpeg"> -->
+        <!-- <audio id="music" loop autoplay>
+          <source src="" type="audio/mpeg">
         </audio>
         <div>
           <button id="audio-controls" class="btn btn-sm btn-icon" onclick="playAudio()" aria-pressed="false" aria-label="Play audio" type="button"><i class="ri-volume-up-line"></i></button>
-        </div>
+        </div> -->
         <div>
-          <button id="animation-controls" class="btn btn-sm btn-icon" onclick="playAnimation()" aria-pressed="false" aria-label="Play animation" type="button"><i class="ri-play-line"></i></button>
+          <button id="animation-controls" class="btn btn-sm btn-icon" onclick="toggleAnimation()" aria-pressed="false" aria-label="Play animation" type="button"><i class="ri-play-line"></i></button>
         </div>
       </header>
     </div>
@@ -339,6 +339,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
     <script>
+      var animationButton = document.getElementById("animation-controls");
+      var animationState = 'playing';
       var animation = bodymovin.loadAnimation({
         container: document.getElementById('bm'),
         renderer: 'svg',
@@ -347,31 +349,33 @@
         path: 'static/animation/data.json'
       })
 
-      setTimeout(function(){ animation.play(); }, 5000);
-
-      var animationButton = document.getElementById("animation-controls");
-      function playAnimation() {
-        if (animation.paused) {
+      setTimeout(
+        function(){
           animation.play();
           animationButton.innerHTML = '<i class="ri-pause-line"></i>';
           animationButton.setAttribute("aria-pressed", "true");
           animationButton.setAttribute("aria-label", "Pause animation");
+        }, 5000
+      );
+
+      function toggleAnimation(state) {
+        if (state == 'play') {
+          animation.play();
+          animationButton.innerHTML = '<i class="ri-pause-line"></i>';
+          animationButton.setAttribute("aria-pressed", "true");
+          animationButton.setAttribute("aria-label", "Pause animation");
+          animationButton.setAttribute("onclick", "toggleAnimation('pause')");
         } else {
           animation.pause();
           animationButton.innerHTML = '<i class="ri-play-line"></i>';
           animationButton.setAttribute("aria-pressed", "false");
           animationButton.setAttribute("aria-label", "Play animation");
+          animationButton.setAttribute("onclick", "toggleAnimation('play')");
         }
       }
-
-      animation.addEventListener('play', function() { 
-        animationButton.innerHTML = '<i class="ri-pause-line"></i>';
-        animationButton.setAttribute("aria-pressed", "true");
-        animationButton.setAttribute("aria-label", "Pause animation");
-      });
     </script>
 
-    <script>
+    <!-- <script>
       var audio = document.getElementById("music");
       var audioButton = document.getElementById("audio-controls");
       function playAudio() {
@@ -393,7 +397,7 @@
         audioButton.setAttribute("aria-pressed", "true");
         audioButton.setAttribute("aria-label", "Pause music");
       });
-    </script>
+    </script> -->
 
     <script>
       const scrollSpy = new bootstrap.ScrollSpy(document.body, {
