@@ -243,9 +243,14 @@ a:focus-visible {
 
 
 // Header
-#fireball {
+.fireball {
   width: 100%;
   height: 100%;
+  margin: 5rem auto 0;
+
+  @include media-breakpoint-up(md) {
+    margin: 9rem auto 0;
+  }
 
   @include media-breakpoint-up(md) {
     width: 80%;
@@ -253,7 +258,7 @@ a:focus-visible {
   }
 }
 
-#video-controls {
+#animation-controls {
   cursor: pointer;
   position: absolute;
   bottom: 1rem;
@@ -282,14 +287,6 @@ header h1 {
   0%   {opacity: 0; top: 50%;}
   75%  {opacity: 1; top: 50%;}
   100% {opacity: 1; top: 15%;}
-}
-
-.header-video {
-  margin-top: 5rem;
-
-  @include media-breakpoint-up(md) {
-    margin-top: 9rem;
-  }
 }
 
 

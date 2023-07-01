@@ -56,9 +56,7 @@
     <div class="header-wrapper w-100 h-100 d-flex align-items-center text-center">  
       <header class="container-fluid">
         <h1 class="display">The Figure 8 Group</h1>
-        <video class="header-video" id="fireball" loop muted playsinline>
-          <source src="static/videos/fireball-4k.mp4" type="video/mp4">
-        </video>
+        <div id="bm" class="fireball"> </div>
         <audio id="music" loop autoplay>
           <!-- <source src="static/audio/void.mp3" type="audio/mpeg"> -->
         </audio>
@@ -66,7 +64,7 @@
           <button id="audio-controls" class="btn btn-sm btn-icon" onclick="playAudio()" aria-pressed="false" aria-label="Play audio" type="button"><i class="ri-volume-up-line"></i></button>
         </div>
         <div>
-          <button id="video-controls" class="btn btn-sm btn-icon" onclick="playVideo()" aria-pressed="false" aria-label="Play video" type="button"><i class="ri-play-line"></i></button>
+          <button id="animation-controls" class="btn btn-sm btn-icon" onclick="playAnimation()" aria-pressed="false" aria-label="Play animation" type="button"><i class="ri-play-line"></i></button>
         </div>
       </header>
     </div>
@@ -337,27 +335,39 @@
       </footer>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
     <script>
-      var video = document.getElementById("fireball");
-      var videoButton = document.getElementById("video-controls");
-      function playVideo() {
-        if (video.paused) {
-          video.play();
-          videoButton.innerHTML = '<i class="ri-pause-line"></i>';
-          videoButton.setAttribute("aria-pressed", "true");
-          videoButton.setAttribute("aria-label", "Pause video");
+      var animation = bodymovin.loadAnimation({
+        container: document.getElementById('bm'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: false,
+        path: 'static/animation/data.json'
+      })
+
+      setTimeout(function(){ animation.play(); }, 5000);
+
+      var animationButton = document.getElementById("animation-controls");
+      function playAnimation() {
+        if (animation.paused) {
+          animation.play();
+          animationButton.innerHTML = '<i class="ri-pause-line"></i>';
+          animationButton.setAttribute("aria-pressed", "true");
+          animationButton.setAttribute("aria-label", "Pause animation");
         } else {
-          video.pause();
-          videoButton.innerHTML = '<i class="ri-play-line"></i>';
-          videoButton.setAttribute("aria-pressed", "false");
-          videoButton.setAttribute("aria-label", "Play video");
+          animation.pause();
+          animationButton.innerHTML = '<i class="ri-play-line"></i>';
+          animationButton.setAttribute("aria-pressed", "false");
+          animationButton.setAttribute("aria-label", "Play animation");
         }
       }
 
-      video.addEventListener('play', function() { 
-        videoButton.innerHTML = '<i class="ri-pause-line"></i>';
-        videoButton.setAttribute("aria-pressed", "true");
-        videoButton.setAttribute("aria-label", "Pause video");
+      animation.addEventListener('play', function() { 
+        animationButton.innerHTML = '<i class="ri-pause-line"></i>';
+        animationButton.setAttribute("aria-pressed", "true");
+        animationButton.setAttribute("aria-label", "Pause animation");
       });
     </script>
 
@@ -386,22 +396,10 @@
     </script>
 
     <script>
-      var video = document.getElementById("fireball");
-      video.addEventListener("canplay", function() {
-        setTimeout(function() {
-          video.play();
-        }, 5000);
-      });
-    </script>
-
-    <script>
       const scrollSpy = new bootstrap.ScrollSpy(document.body, {
         target: '#navbar'
       })
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
   
   </body>
 </html>
