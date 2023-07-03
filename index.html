@@ -50,12 +50,12 @@
       <header class="container-fluid">
         <h1 class="display">The Figure 8 Group</h1>
         <div id="bm" class="fireball"> </div>
-        <!-- <audio id="music" loop autoplay>
-          <source src="" type="audio/mpeg">
+        <audio id="music" loop autoplay>
+          <source src="static/audio/lighting-up-the-sky.mp3" type="audio/mpeg">
         </audio>
         <div>
           <button id="audio-controls" class="btn btn-sm btn-icon" onclick="playAudio()" aria-pressed="false" aria-label="Play audio" type="button"><i class="ri-volume-up-line"></i></button>
-        </div> -->
+        </div>
         <div>
           <button id="animation-controls" class="btn btn-sm btn-icon" onclick="toggleAnimation()" aria-pressed="false" aria-label="Play animation" type="button"><i class="ri-play-line"></i></button>
         </div>
@@ -376,9 +376,7 @@
       const scrollSpy = new bootstrap.ScrollSpy(document.body, {
         target: '#navbar'
       })
-    </script>
 
-    <!-- <script>
       var audio = document.getElementById("music");
       var audioButton = document.getElementById("audio-controls");
       function playAudio() {
@@ -400,7 +398,7 @@
         audioButton.setAttribute("aria-pressed", "true");
         audioButton.setAttribute("aria-label", "Pause music");
       });
-    </script> -->
+    </script>
   
   </body>
 </html>
