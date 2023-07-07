@@ -50,8 +50,8 @@
       <header class="container-fluid">
         <h1 class="display">The Figure 8 Group</h1>
         <div id="bm" class="fireball" role="presentation"> </div>
-        <audio id="music" loop autoplay>
-          <source src="static/audio/lighting-up-the-sky.mp3" type="audio/mpeg">
+        <audio id="music" autoplay>
+          <source src="static/audio/figure-8-intro.mp3" type="audio/mpeg">
         </audio>
         <div>
           <button id="audio-controls" class="btn btn-sm btn-icon" onclick="playAudio()" aria-pressed="false" aria-label="Play audio" type="button"><i class="ri-volume-up-line"></i></button>
@@ -312,7 +312,7 @@
         <div class="row">
           <div class="col-12 col-md">
             <p class="brand-4 company-desktop">The <br>Figure 8 Group</p>
-            <p class="brand-4 company-mobile">The Figure 8 Group</p>
+            <p class="brand-4 company-mobile" aria-hidden="true">The Figure 8 Group</p>
           </div>
           <div class="col-12 col-md copyright align-self-md-end">
             <div class="social-buttons d-flex justify-content-center justify-content-md-end">
@@ -353,7 +353,7 @@
           animation.play();
           animationButton.innerHTML = '<i class="ri-pause-line"></i>';
           animationButton.setAttribute("aria-pressed", "true");
-          animationButton.setAttribute("aria-label", "Pause animation");
+          animationButton.setAttribute("aria-label", "Pause fireball animation");
         }, 5000
       );
 
@@ -362,13 +362,13 @@
           animation.play();
           animationButton.innerHTML = '<i class="ri-pause-line"></i>';
           animationButton.setAttribute("aria-pressed", "true");
-          animationButton.setAttribute("aria-label", "Pause animation");
+          animationButton.setAttribute("aria-label", "Pause fireball animation");
           animationButton.setAttribute("onclick", "toggleAnimation('pause')");
         } else {
           animation.pause();
           animationButton.innerHTML = '<i class="ri-play-line"></i>';
           animationButton.setAttribute("aria-pressed", "false");
-          animationButton.setAttribute("aria-label", "Play animation");
+          animationButton.setAttribute("aria-label", "Play fireball animation");
           animationButton.setAttribute("onclick", "toggleAnimation('play')");
         }
       }
@@ -379,17 +379,19 @@
 
       var audio = document.getElementById("music");
       var audioButton = document.getElementById("audio-controls");
+      var audioTranscript = document.getElementById("audio-transcript");
       function playAudio() {
         if (audio.paused) {
           audio.play();
           audioButton.innerHTML = '<i class="ri-volume-mute-line"></i>';
           audioButton.setAttribute("aria-pressed", "true");
-          audioButton.setAttribute("aria-label", "Pause music");
+          audioButton.setAttribute("aria-label", "Pause audio");
+          audioTranscript.setAttribute("class", "visible");
         } else {
           audio.pause();
           audioButton.innerHTML = '<i class="ri-volume-up-line"></i>';
           audioButton.setAttribute("aria-pressed", "false");
-          audioButton.setAttribute("aria-label", "Play music");
+          audioButton.setAttribute("aria-label", "Play audio");
         }
       }
 
