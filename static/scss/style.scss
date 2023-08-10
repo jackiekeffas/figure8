@@ -560,6 +560,23 @@ footer {
   }
 }
 
+.gbcc-logo {
+  padding: 0;
+
+  img {
+    width: 100px;
+    margin-bottom: $spacer;
+
+    @include media-breakpoint-up(md) {
+      width: 60px;
+      margin-bottom: 0;
+    }
+    @include media-breakpoint-up(lg) {
+      width: 100px;
+    }
+  }
+}
+
 body.dark-gradient footer {
   position: absolute;
   bottom: 0;
